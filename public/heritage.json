@@ -1,0 +1,112 @@
+[
+    {
+        "timestamp": "2024-12-08T14:44:58.871Z",
+        "soil_moisture": 60,
+        "sound_level": 35,
+        "temperature": 25,
+        "humidity": 55,
+        "human_temperature": 37,
+        "rain_detected": 0,
+        "motion_detected": 0,
+        "dust_density": 33.4
+    },
+    {
+        "timestamp": "2024-12-08T14:45:37.646Z",
+        "soil_moisture": 45,
+        "sound_level": 50,
+        "temperature": 20,
+        "humidity": 40,
+        "human_temperature": 36.8,
+        "rain_detected": 1,
+        "motion_detected": 1,
+        "dust_density": 25.71
+    },
+    {
+        "timestamp": "2024-12-08T14:45:42.396Z",
+        "soil_moisture": 30,
+        "sound_level": 90,
+        "temperature": 18,
+        "humidity": 35,
+        "human_temperature": 36.4,
+        "rain_detected": 1,
+        "motion_detected": 0,
+        "dust_density": 29.18
+    },
+    {
+        "timestamp": "2024-12-08T14:45:46.989Z",
+        "soil_moisture": 85,
+        "sound_level": 70,
+        "temperature": 30,
+        "humidity": 65,
+        "human_temperature": 37.2,
+        "rain_detected": 0,
+        "motion_detected": 1,
+        "dust_density": 30.61
+    },
+    {
+        "timestamp": "2024-12-08T14:45:51.671Z",
+        "soil_moisture": 75,
+        "sound_level": 25,
+        "temperature": 21,
+        "humidity": 50,
+        "human_temperature": 36.5,
+        "rain_detected": 0,
+        "motion_detected": 0,
+        "dust_density": 34.19
+    },
+    {
+        "timestamp": "2024-12-08T14:45:56.079Z",
+        "soil_moisture": 20,
+        "sound_level": 45,
+        "temperature": 28,
+        "humidity": 70,
+        "human_temperature": 37.5,
+        "rain_detected": 1,
+        "motion_detected": 1,
+        "dust_density": 25.58
+    },
+    {
+        "timestamp": "2024-12-08T14:46:00.509Z",
+        "soil_moisture": 90,
+        "sound_level": 55,
+        "temperature": 15,
+        "humidity": 60,
+        "human_temperature": 36.7,
+        "rain_detected": 0,
+        "motion_detected": 1,
+        "dust_density": 27.15
+    },
+    {
+        "timestamp": "2024-12-08T14:46:05.394Z",
+        "soil_moisture": 40,
+        "sound_level": 85,
+        "temperature": 35,
+        "humidity": 30,
+        "human_temperature": 37.3,
+        "rain_detected": 0,
+        "motion_detected": 0,
+        "dust_density": 26.65
+    },
+    {
+        "timestamp": "2024-12-08T14:46:10.028Z",
+        "soil_moisture": 55,
+        "sound_level": 60,
+        "temperature": 27,
+        "humidity": 45,
+        "human_temperature": 36.9,
+        "rain_detected": 1,
+        "motion_detected": 0,
+        "dust_density": 25.15
+    },
+    {
+        "timestamp": "2024-12-08T14:46:14.750Z",
+        "soil_moisture": 65,
+        "sound_level": 20,
+        "temperature": 19,
+        "humidity": 35,
+        "human_temperature": 36.6,
+        "rain_detected": 0,
+        "motion_detected": 1,
+        "dust_density": 31.45
+    }
+]
