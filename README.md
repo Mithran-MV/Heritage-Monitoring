@@ -64,7 +64,7 @@ Start the development server:
 ```bash
 npm run dev
 ```
-The application will be accessible at [http://localhost:3000](http://localhost:3000).
+The application will be accessible at [https://heritagedash.deployforge.com/](https://heritagedash.deployforge.com/).
 
 ### Production
 
