@@ -43,7 +43,6 @@ export default function HeritageDashboard() {
     soundLevel: latestData?.sound_level > 85 ? 'High' : 'Normal',
     temperature: latestData?.temperature < 15 || latestData?.temperature > 35 ? 'Out of Range' : 'Normal',
     humidity: latestData?.humidity < 30 || latestData?.humidity > 70 ? 'Out of Range' : 'Normal',
-    humanTemperature: latestData?.human_temperature < 36 || latestData?.human_temperature > 38 ? 'Abnormal' : 'Normal',
     rainDetected: latestData?.rain_detected ? 'Rain Detected' : 'No Rain',
     motionDetected: latestData?.motion_detected ? 'Motion Detected' : 'No Motion Detected',
   });
@@ -52,87 +51,86 @@ export default function HeritageDashboard() {
     <div style={{ backgroundColor: '#1b1f38', color: '#fff', minHeight: '100vh', paddingBottom: '20px' }}>
       {/* Heading Section */}
       <Container sx={{ textAlign: 'center', padding: '20px 0' }}>
-  <Typography variant="h3" sx={{ fontWeight: 'bold', color: '#FFFFFF' }}>
-    Heritage Monitoring Dashboard
-  </Typography>
-  <Typography variant="subtitle1" sx={{ marginTop: '10px', color: '#ccc' }}>
-    Real-time monitoring and alerting for heritage site conditions.
-  </Typography>
-  <Divider sx={{ margin: '20px 0', backgroundColor: '#FFFFFF' }} />
+        <Typography variant="h3" sx={{ fontWeight: 'bold', color: '#FFFFFF' }}>
+          Heritage Monitoring Dashboard
+        </Typography>
+        <Typography variant="subtitle1" sx={{ marginTop: '10px', color: '#ccc' }}>
+          Real-time monitoring and alerting for heritage site conditions.
+        </Typography>
+        <Divider sx={{ margin: '20px 0', backgroundColor: '#FFFFFF' }} />
 
-  {/* New Row with Containers */}
-  <Grid container spacing={3} sx={{ marginTop: '20px', justifyContent: 'center' }}>
-    {/* Red Fort */}
-    <Grid item xs={12} sm={4}>
-      <Card
-        sx={{
-          backgroundColor: '#2E3B55',
-          borderRadius: '10px',
-          textAlign: 'center',
-          padding: '10px',
-        }}
-      >
-        <CardContent>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFFFFF', marginBottom: '10px' }}>
-            Red Fort
-          </Typography>
-          <img
-            src="https://cdn.britannica.com/20/189820-050-D650A54D/Red-Fort-Old-Delhi-India.jpg"
-            alt="Red Fort"
-            style={{ width: '100%', borderRadius: '10px' }}
-          />
-        </CardContent>
-      </Card>
-    </Grid>
+        {/* New Row with Containers */}
+        <Grid container spacing={3} sx={{ marginTop: '20px', justifyContent: 'center' }}>
+          {/* Red Fort */}
+          <Grid item xs={12} sm={4}>
+            <Card
+              sx={{
+                backgroundColor: '#2E3B55',
+                borderRadius: '10px',
+                textAlign: 'center',
+                padding: '10px',
+              }}
+            >
+              <CardContent>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFFFFF', marginBottom: '10px' }}>
+                  Red Fort
+                </Typography>
+                <img
+                  src="https://cdn.britannica.com/20/189820-050-D650A54D/Red-Fort-Old-Delhi-India.jpg"
+                  alt="Red Fort"
+                  style={{ width: '100%', borderRadius: '10px' }}
+                />
+              </CardContent>
+            </Card>
+          </Grid>
 
-    {/* Ellora Caves */}
-    <Grid item xs={12} sm={4}>
-      <Card
-        sx={{
-          backgroundColor: '#2E3B55',
-          borderRadius: '10px',
-          textAlign: 'center',
-          padding: '10px',
-        }}
-      >
-        <CardContent>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFFFFF', marginBottom: '10px' }}>
-            Ellora Caves
-          </Typography>
-          <img
-            src="https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcQ-vOwliw2t7qMHxQW7kLnXc1Q40-zEM5Ywrqk3_WPGAv-alz-owOKrGOK9BSs7YooL"
-            alt="Ellora Caves"
-            style={{ width: '100%', borderRadius: '10px' }}
-          />
-        </CardContent>
-      </Card>
-    </Grid>
+          {/* Ellora Caves */}
+          <Grid item xs={12} sm={4}>
+            <Card
+              sx={{
+                backgroundColor: '#2E3B55',
+                borderRadius: '10px',
+                textAlign: 'center',
+                padding: '10px',
+              }}
+            >
+              <CardContent>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFFFFF', marginBottom: '10px' }}>
+                  Ellora Caves
+                </Typography>
+                <img
+                  src="https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcQ-vOwliw2t7qMHxQW7kLnXc1Q40-zEM5Ywrqk3_WPGAv-alz-owOKrGOK9BSs7YooL"
+                  alt="Ellora Caves"
+                  style={{ width: '100%', borderRadius: '10px' }}
+                />
+              </CardContent>
+            </Card>
+          </Grid>
 
-    {/* Gateway Of India Mumbai */}
-    <Grid item xs={12} sm={4}>
-      <Card
-        sx={{
-          backgroundColor: '#2E3B55',
-          borderRadius: '10px',
-          textAlign: 'center',
-          padding: '10px',
-        }}
-      >
-        <CardContent>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFFFFF', marginBottom: '10px' }}>
-          Gateway Of India Mumbai
-          </Typography>
-          <img
-            src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcR5CYJKRS2NU348ljrA2LBxvHvYPUJS01yUw2xTfs_MCr6wPFeYVM18x611dT0IEQm1"
-            alt="Gateway Of India Mumbai"
-            style={{ width: '100%', borderRadius: '10px' }}
-          />
-        </CardContent>
-      </Card>
-    </Grid>
-  </Grid>
-</Container>
-
+          {/* Gateway Of India Mumbai */}
+          <Grid item xs={12} sm={4}>
+            <Card
+              sx={{
+                backgroundColor: '#2E3B55',
+                borderRadius: '10px',
+                textAlign: 'center',
+                padding: '10px',
+              }}
+            >
+              <CardContent>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FFFFFF', marginBottom: '10px' }}>
+                  Gateway Of India Mumbai
+                </Typography>
+                <img
+                  src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcR5CYJKRS2NU348ljrA2LBxvHvYPUJS01yUw2xTfs_MCr6wPFeYVM18x611dT0IEQm1"
+                  alt="Gateway Of India Mumbai"
+                  style={{ width: '100%', borderRadius: '10px' }}
+                />
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
 
       <Divider sx={{ margin: '20px 0', backgroundColor: '#FFFFFF' }} />
 
@@ -176,7 +174,7 @@ export default function HeritageDashboard() {
             { param: 'soil_moisture', label: 'Soil Moisture (%)' },
             { param: 'sound_level', label: 'Sound Level (dB)' },
             { param: 'humidity', label: 'Humidity (%)' },
-            { param: 'human_temperature', label: 'Temperature (°C)' },
+            { param: 'temperature', label: 'Temperature (°C)' },
             { param: 'dust_density', label: 'Dust Density (µg/m³)' },
             { param: 'motion_detected', label: 'Motion Detected' },
           ].map(({ param, label }) => (
@@ -197,53 +195,55 @@ export default function HeritageDashboard() {
       <Divider sx={{ margin: '40px 0', backgroundColor: '#FFFFFF' }} />
 
       {/* Data Table Section */}
-{/* Data Table Section */}
-<Container sx={{ marginTop: '20px' }}>
-  <Typography variant="h5" sx={{ fontWeight: 'bold', marginBottom: '20px', color: '#FFFFFF', textAlign: 'center' }}>
-    Historical Data
-  </Typography>
-  <Paper elevation={3} sx={{ padding: '20px', backgroundColor: '#2E3B55', borderRadius: '10px' }}>
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid
-        rows={data.map((item, index) => ({ id: index, ...item, timestamp: new Date(item.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) }))}
-        columns={[
-          { field: 'timestamp', headerName: 'Timestamp', flex: 1 },
-          { field: 'soil_moisture', headerName: 'Soil Moisture', flex: 1 },
-          { field: 'sound_level', headerName: 'Sound Level', flex: 1 },
-          { field: 'humidity', headerName: 'Humidity', flex: 1 },
-          { field: 'temperature', headerName: 'Temperature', flex: 1 },
-          { field: 'rain_detected', headerName: 'Rain Detected', flex: 1 },
-          { field: 'motion_detected', headerName: 'Motion Detected', flex: 1 },
-          { field: 'dust_density', headerName: 'Dust Density', flex: 1 },
-        ]}
-        pageSize={10}
-        rowsPerPageOptions={[5, 10, 25]}
-        sx={{
-          color: '#FFFFFF', // Text color for all table content
-          '& .MuiDataGrid-row': {
-            backgroundColor: '#374151', // Row background
-            '&:hover': {
-              backgroundColor: '#374151', // Hover color for rows
-            },
-          },
-          '& .MuiDataGrid-cell': {
-            borderBottom: '1px solid #1f2937', // Border color
-          },
-          '& .MuiDataGrid-columnHeaders': {
-            backgroundColor: '#1f2937', // Column header background
-            color: 'black', // Column header text color
-            fontWeight: 'bold', // Bold header text
-          },
-          '& .MuiDataGrid-footerContainer': {
-            backgroundColor: '#1f2937', // Footer background color
-            color: '#E5E7EB', // Footer text color
-          },
-        }}
-      />
-    </div>
-  </Paper>
-</Container>
-
+      <Container sx={{ marginTop: '20px' }}>
+        <Typography variant="h5" sx={{ fontWeight: 'bold', marginBottom: '20px', color: '#FFFFFF', textAlign: 'center' }}>
+          Historical Data
+        </Typography>
+        <Paper elevation={3} sx={{ padding: '20px', backgroundColor: '#2E3B55', borderRadius: '10px' }}>
+          <div style={{ height: 400, width: '100%' }}>
+            <DataGrid
+              rows={data.map((item, index) => ({
+                id: index,
+                ...item,
+                timestamp: new Date(item.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+              }))}
+              columns={[
+                { field: 'timestamp', headerName: 'Timestamp', flex: 1 },
+                { field: 'soil_moisture', headerName: 'Soil Moisture', flex: 1 },
+                { field: 'sound_level', headerName: 'Sound Level', flex: 1 },
+                { field: 'humidity', headerName: 'Humidity', flex: 1 },
+                { field: 'temperature', headerName: 'Temperature', flex: 1 },
+                { field: 'rain_detected', headerName: 'Rain Detected', flex: 1 },
+                { field: 'motion_detected', headerName: 'Motion Detected', flex: 1 },
+                { field: 'dust_density', headerName: 'Dust Density', flex: 1 },
+              ]}
+              pageSize={10}
+              rowsPerPageOptions={[5, 10, 25]}
+              sx={{
+                color: '#FFFFFF',
+                '& .MuiDataGrid-row': {
+                  backgroundColor: '#374151',
+                  '&:hover': {
+                    backgroundColor: '#374151',
+                  },
+                },
+                '& .MuiDataGrid-cell': {
+                  borderBottom: '1px solid #1f2937',
+                },
+                '& .MuiDataGrid-columnHeaders': {
+                  backgroundColor: '#1f2937',
+                  color: 'black',
+                  fontWeight: 'bold',
+                },
+                '& .MuiDataGrid-footerContainer': {
+                  backgroundColor: '#1f2937',
+                  color: '#E5E7EB',
+                },
+              }}
+            />
+          </div>
+        </Paper>
+      </Container>
     </div>
   );
 }
