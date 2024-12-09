@@ -175,9 +175,8 @@ export default function HeritageDashboard() {
           {[
             { param: 'soil_moisture', label: 'Soil Moisture (%)' },
             { param: 'sound_level', label: 'Sound Level (dB)' },
-            { param: 'temperature', label: 'Temperature (°C)' },
             { param: 'humidity', label: 'Humidity (%)' },
-            { param: 'human_temperature', label: 'Human Temperature (°C)' },
+            { param: 'human_temperature', label: 'Temperature (°C)' },
             { param: 'dust_density', label: 'Dust Density (µg/m³)' },
             { param: 'motion_detected', label: 'Motion Detected' },
           ].map(({ param, label }) => (
@@ -211,9 +210,8 @@ export default function HeritageDashboard() {
           { field: 'timestamp', headerName: 'Timestamp', flex: 1 },
           { field: 'soil_moisture', headerName: 'Soil Moisture', flex: 1 },
           { field: 'sound_level', headerName: 'Sound Level', flex: 1 },
-          { field: 'temperature', headerName: 'Temperature', flex: 1 },
           { field: 'humidity', headerName: 'Humidity', flex: 1 },
-          { field: 'human_temperature', headerName: 'Human Temperature', flex: 1 },
+          { field: 'temperature', headerName: 'Temperature', flex: 1 },
           { field: 'rain_detected', headerName: 'Rain Detected', flex: 1 },
           { field: 'motion_detected', headerName: 'Motion Detected', flex: 1 },
           { field: 'dust_density', headerName: 'Dust Density', flex: 1 },
