@@ -206,7 +206,7 @@ export default function HeritageDashboard() {
   <Paper elevation={3} sx={{ padding: '20px', backgroundColor: '#2E3B55', borderRadius: '10px' }}>
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid
-        rows={data.map((item, index) => ({ id: index, ...item }))}
+        rows={data.map((item, index) => ({ id: index, ...item, timestamp: new Date(item.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) }))}
         columns={[
           { field: 'timestamp', headerName: 'Timestamp', flex: 1 },
           { field: 'soil_moisture', headerName: 'Soil Moisture', flex: 1 },
