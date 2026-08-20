@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      react:
+        patterns:
+          [
+            'react',
+            'react-dom',
+            '@types/react',
+            '@types/react-dom',
+            'next',
+            'eslint-config-next',
+          ]
+      mui:
+        patterns: ['@mui/*', '@emotion/*']
+      dev-tooling:
+        patterns:
+          ['eslint*', 'prettier*', 'vitest', '@vitest/*', 'typescript', '@types/*', 'tsx']
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
