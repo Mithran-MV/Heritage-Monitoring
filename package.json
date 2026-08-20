@@ -1,22 +1,55 @@
 {
+  "name": "heritage-monitoring",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
+  "description": "IoT monitoring platform for heritage sites: authenticated sensor ingest, live streaming dashboard, threshold alerting and historical analysis.",
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
-    "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "db:seed": "tsx scripts/seed.ts",
+    "simulate": "tsx scripts/simulate.ts"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.5",
-    "@emotion/styled": "^11.13.5",
-    "@mui/material": "^6.1.10",
-    "@mui/x-data-grid": "^7.23.1",
-    "chart.js": "^4.4.7",
-    "next": "latest",
-    "react": "18.2.0",
-    "react-chartjs-2": "^5.2.0",
-    "react-dom": "18.2.0"
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^9.3.1",
+    "@mui/material": "^9.3.1",
+    "@mui/material-nextjs": "^9.3.0",
+    "@mui/x-data-grid": "^9.11.0",
+    "better-sqlite3": "^13.0.3",
+    "next": "^16.3.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "recharts": "^3.10.1",
+    "server-only": "^0.0.1",
+    "zod": "^4.4.3"
   },
-  "engines": {
-    "node": ">=18"
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.3",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitest/coverage-v8": "^4.1.11",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.3.1",
+    "prettier": "^3.9.6",
+    "tsx": "^4.20.7",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
   }
 }

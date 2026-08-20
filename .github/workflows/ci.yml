@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit and database tests
+        run: npm run test:coverage
+
+      - name: Production build
+        run: npm run build
+        env:
+          DEVICE_API_KEY: ci-sentinel-key-not-used-by-the-build
+          DATABASE_PATH: ./data/ci.db
+
+      - name: Seed and smoke-test the API
+        env:
+          DEVICE_API_KEY: ci-sentinel-key-not-used-by-the-build
+          DATABASE_PATH: ./data/ci.db
+        run: |
+          npm run db:seed -- --hours=2
+          npm start &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID' EXIT
+
+          for _ in $(seq 1 30); do
+            curl -sf http://localhost:3000/api/health >/dev/null && break
+            sleep 1
+          done
+
+          echo "--- health ---"
+          curl -sf http://localhost:3000/api/health | tee /tmp/health.json
+          grep -q '"status":"ok"' /tmp/health.json
+
+          echo "--- ingest without a key must be rejected ---"
+          status=$(curl -s -o /dev/null -w '%{http_code}' -X POST \
+            http://localhost:3000/api/readings \
+            -H 'Content-Type: application/json' \
+            -d '{"site":"red-fort","temperature":25,"humidity":50,"soil_moisture":50,"sound_level":60,"dust_density":20}')
+          if [ "$status" != "401" ]; then
+            echo "::error::Unauthenticated ingest returned $status, expected 401"
+            exit 1
+          fi
+
+          echo "--- ingest with the key must be accepted ---"
+          status=$(curl -s -o /dev/null -w '%{http_code}' -X POST \
+            http://localhost:3000/api/readings \
+            -H "X-API-Key: $DEVICE_API_KEY" \
+            -H 'Content-Type: application/json' \
+            -d '{"site":"red-fort","temperature":25,"humidity":50,"soil_moisture":50,"sound_level":60,"dust_density":20}')
+          if [ "$status" != "201" ]; then
+            echo "::error::Authenticated ingest returned $status, expected 201"
+            exit 1
+          fi
+
+          echo "--- GET must not mutate state ---"
+          before=$(curl -s http://localhost:3000/api/health | grep -o '"readings":[0-9]*')
+          curl -s -o /dev/null "http://localhost:3000/api/readings?site=red-fort&temperature=99"
+          after=$(curl -s http://localhost:3000/api/health | grep -o '"readings":[0-9]*')
+          if [ "$before" != "$after" ]; then
+            echo "::error::A GET request changed the row count ($before -> $after)"
+            exit 1
+          fi
+
+          echo "All API smoke checks passed."

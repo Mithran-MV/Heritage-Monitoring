@@ -1,0 +1,34 @@
+name: Bug report
+description: Something is not working as documented
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part?
+      options: [Dashboard UI, Ingest API, Live stream, Alerting, Export, Firmware, Other]
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Request or steps to reproduce
+      description: A curl command is ideal.
+      render: shell
+  - type: checkboxes
+    id: no-secrets
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have not pasted a working device key into this report.
+          required: true
