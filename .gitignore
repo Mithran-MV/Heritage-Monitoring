@@ -1,0 +1,27 @@
+/node_modules
+/.next/
+/out/
+/build
+/coverage
+next-env.d.ts
+
+# Local SQLite database and its WAL sidecars
+/data/*.db
+/data/*.db-shm
+/data/*.db-wal
+
+.env
+.env*.local
+!.env.example
+
+.DS_Store
+*.pem
+*.tsbuildinfo
+npm-debug.log*
+.vercel
+
+# Arduino credentials
+hardware/**/secrets.h
+
+# Arduino credentials
+hardware/**/secrets.h
